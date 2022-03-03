@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import EmployeeService from '../services/EmployeeService'
-import Button from "./Button";
+import Button from "./general/Button";
 
 class ListEmployeeComponent extends Component {
 
     constructor(props) {
-
         super(props)
-
         this.state = {
                 employees: []
         }
@@ -28,10 +26,8 @@ class ListEmployeeComponent extends Component {
                             buttonName={"Add Employee"}
                             />
                  </div>
-                 <br></br>
                  <div className = "row">
                         <table className = "table table-striped table-bordered">
-
                             <thead>
                                 <tr>
                                     <th> Employee First Name</th>
@@ -53,9 +49,7 @@ class ListEmployeeComponent extends Component {
                                 }
                             </tbody>
                         </table>
-
                  </div>
-
             </div>
         )
     }

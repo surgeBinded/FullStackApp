@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import EmployeeService from "../services/EmployeeService";
-import Button from "./Button";
+import Button from "./general/Button";
 
 class CreateEmployeeComponent extends Component {
 
     constructor(props) {
-
         super(props)
         this.state = {
             firstName: '',
@@ -59,7 +58,7 @@ class CreateEmployeeComponent extends Component {
                                         value={this.state.emailId} onChange={this.changeEmailIdHandler}/>
 
                                         <Button uri={"/employees"} buttonName={"Add Employee"} method={this.saveEmployee} />
-                                        <Button uri={"/"} buttonName={"Cancel"} />
+                                        <Button uri={"/"} buttonName={"Cancel"} style={"btn-danger"}/>
                                     </div>
                                 </form>
                             </div>
