@@ -10,12 +10,12 @@ class Employee(
     val id: Long,
 
     @Column(name = "first_name")
-    val firstName: String,
+    var firstName: String,
 
     @Column(name = "last_name")
-    val lastName: String,
+    var lastName: String,
 
     @Column(name = "email_id")
-    val emailId: String
+    var emailId: String
     ) {
 }
