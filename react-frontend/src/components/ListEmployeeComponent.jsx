@@ -13,7 +13,7 @@ class ListEmployeeComponent extends Component {
 
     componentDidMount() {
         EmployeeService.getEmployees().then(res => {
-            this.setState({employees: res.data})
+            this.setState({employees: res.data.employees})
         })
     }
 
@@ -22,9 +22,7 @@ class ListEmployeeComponent extends Component {
             <div>
                  <h2 className="text-center">Employees List</h2>
                  <div className = "row">
-                    <Button uri={"/add-employee"}
-                            buttonName={"Add Employee"}
-                            />
+                    <Button uri={"/add-employee"} buttonName={"Add Employee"}/>
                  </div>
                  <div className = "row">
                         <table className = "table table-striped table-bordered">
@@ -39,11 +37,15 @@ class ListEmployeeComponent extends Component {
                             <tbody>
                                 {
                                     this.state.employees.map(
-                                        employee => 
+                                        employee =>
                                         <tr key = {employee.id}>
-                                             <td> { employee.firstName} </td>   
+                                             <td> { employee.firstName} </td>
                                              <td> {employee.lastName}</td>
                                              <td> {employee.emailId}</td>
+                                            <td>
+                                                <Button uri={`/update-employee/${employee.id}`} buttonName={"Update"} style={"button btn-info"}/>
+                                                <button className="btn button btn-danger" onClick={() => {EmployeeService.deleteEmployee(employee.id).then()}}>Delete</button>
+                                            </td>
                                         </tr>
                                     )
                                 }

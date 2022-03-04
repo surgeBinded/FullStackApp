@@ -58,7 +58,7 @@ class CreateEmployeeComponent extends Component {
                                         value={this.state.emailId} onChange={this.changeEmailIdHandler}/>
 
                                         <Button uri={"/employees"} buttonName={"Add Employee"} method={this.saveEmployee} />
-                                        <Button uri={"/"} buttonName={"Cancel"} style={"btn-danger"}/>
+                                        <Button uri={"/"} buttonName={"Cancel"} style={"button btn-danger"}/>
                                     </div>
                                 </form>
                             </div>
