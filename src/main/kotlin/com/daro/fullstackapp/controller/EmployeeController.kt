@@ -1,8 +1,11 @@
 package com.daro.fullstackapp.controller
 
+import com.daro.fullstackapp.dto.EmployeeResponse
 import com.daro.fullstackapp.model.Employee
 import com.daro.fullstackapp.repository.EmployeeRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @CrossOrigin(origins = ["http://localhost:3000/"])
@@ -11,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 class EmployeeController @Autowired constructor(private val employeeRepository: EmployeeRepository) {
 
     @GetMapping("/employees")
-    fun getAllEmployees(): List<Employee> = employeeRepository.findAll()
+    fun getAllEmployees(): ResponseEntity<EmployeeResponse> = ResponseEntity(EmployeeResponse(employeeRepository.findAll()), HttpStatus.OK)
 
     @GetMapping("/employees/{employeeId}")
     fun getEmployee(@PathVariable employeeId: Long): Employee = employeeRepository.getById(employeeId)
